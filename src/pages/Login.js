@@ -21,7 +21,7 @@
            setMessage('Please enter both email and password');
            return;
          }
-         const API_URL = process.env.REACT_APP_API_URL || 'https://ride-sable.vercel.app/api';
+         const API_URL = process.env.REACT_APP_API_URL || 'https://ride-mr5z5pc1d-ciputdroids-projects.vercel.app/api';
          const res = await axios.post(`${API_URL}/login`, { email, password }, { timeout: 30000 }); // Meningkatkan timeout menjadi 30 detik
          setMessage(res.data.message);
          if (res.data.token) {
