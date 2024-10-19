@@ -1,0 +1,341 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.map-container {
+  height: 100vh;
+  width: 100vw;
+}
+
+.info-panel {
+  position: fixed;
+  bottom: 5px; /* Jarak dari bawah layar */
+  left: 10px;
+  right: 10px;
+  z-index: 1000;
+  background-color: white;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px; /* Membuat sudut lebih bulat */
+  max-width: calc(100% - 20px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Menambah bayangan untuk efek melayang */
+  max-height: calc(50vh - 20px); /* Mengurangi tinggi maksimum */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.info-panel-content {
+  padding-bottom: 20px; /* Mengurangi padding bawah */
+}
+
+.input-field {
+  width: calc(100% - 16px);
+  margin-bottom: 10px;
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.refresh-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.refresh-icon, .new-search-icon {
+  position: fixed;
+  top: 20px;
+  z-index: 1001;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.refresh-icon {
+  right: 20px;
+}
+
+.new-search-icon {
+  left: 20px;
+}
+
+.refresh-icon i, .new-search-icon i {
+  color: #4CAF50;
+  font-size: 24px;
+}
+
+/* Tambahkan ini untuk memastikan tombol terlihat pada layar kecil */
+@media (max-width: 600px) {
+  .info-panel {
+    bottom: 15px; /* Sedikit lebih jauh dari bawah untuk layar kecil */
+    left: 15px;
+    right: 15px;
+    max-width: calc(100% - 30px);
+    max-height: calc(60vh - 30px);
+  }
+
+  .info-panel-content {
+    padding-bottom: 30px;
+  }
+
+  .refresh-icon, .new-search-icon {
+    top: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .refresh-icon {
+    right: 10px;
+  }
+
+  .new-search-icon {
+    left: 10px;
+  }
+
+  .refresh-icon i, .new-search-icon i {
+    font-size: 20px;
+  }
+
+  .input-field, .button, .opang-button {
+    font-size: 14px;
+  }
+
+  .result-info {
+    font-size: 1.2em;
+  }
+
+  .opang-button {
+    margin-bottom: 5px; /* Tambahkan ini untuk memberikan ruang di bawah tombol */
+  }
+
+  .result-info {
+    font-size: 1em; /* Sedikit lebih kecil untuk layar mobile */
+  }
+
+  .info-panel {
+    padding-bottom: 10px; /* Sedikit lebih besar untuk layar kecil */
+  }
+
+  .info-panel-content {
+    padding-bottom: 80px; /* Lebih besar untuk layar kecil */
+  }
+}
+
+/* Tambahkan media query baru untuk layar yang sangat kecil */
+@media (max-width: 320px) {
+  .info-panel {
+    max-height: 80vh;
+  }
+
+  .input-field, .button, .opang-button {
+    font-size: 12px;
+  }
+
+  .result-info {
+    font-size: 1em;
+  }
+
+  .result-info {
+    font-size: 0.9em; /* Lebih kecil lagi untuk layar sangat kecil */
+  }
+}
+
+/* Tambahkan kelas baru ini */
+.result-info {
+  font-size: 1.5em;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.result-item.tarif {
+  margin-bottom: 1px;
+}
+
+.result-item.tarif strong {
+  display: block;
+  margin-bottom: 1px;
+  font-size: 3em;
+}
+
+.result-item.tarif span {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.result-item.jarak {
+  font-size: 1em;
+  color: #666;
+}
+
+.opang-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.opang-button:hover {
+  background-color: #45a049;
+}
+
+.opang-button i {
+  margin-right: 8px;
+}
+
+.opang-button i:first-child {
+  margin-right: -5px;
+}
+
+.result-item {
+  text-align: center;
+  width: 100%; /* Memastikan item mengambil lebar penuh */
+  margin-bottom: 10px; /* Menambah jarak antar item */
+}
+
+/* Menyesuaikan untuk layar kecil */
+@media (max-width: 600px) {
+  .result-info {
+    font-size: 1.3em;
+  }
+  
+  .result-item.tarif span {
+    font-size: 1.1em;
+  }
+  
+  .result-item.jarak {
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 320px) {
+  .result-info {
+    font-size: 1.2em;
+  }
+  
+  .result-item.tarif span {
+    font-size: 1em;
+  }
+  
+  .result-item.jarak {
+    font-size: 0.5em;
+  }
+}
+
+.tarif-label {
+  font-size: 0.7em;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.logout-icon {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 1001;
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.logout-icon i {
+  color: #4CAF50;
+  font-size: 24px;
+}
+
+/* Tambahkan ini untuk memastikan ikon terlihat pada layar kecil */
+@media (max-width: 600px) {
+  .logout-icon {
+    top: 60px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .logout-icon i {
+    font-size: 20px;
+  }
+}
