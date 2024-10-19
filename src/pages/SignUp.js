@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'ride-mr5z5pc1d-ciputdroids-projects.vercel.app/api'; // Ganti dengan URL backend Anda
+const API_URL = process.env.REACT_APP_API_URL || 'https://ride-mr5z5pc1d-ciputdroids-projects.vercel.app/api'; // Ganti dengan URL backend Anda
 
 function SignUp() {
   const [username, setUsername] = useState('');
